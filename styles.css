@@ -100,7 +100,7 @@ header {
 .rexImgMain {
     width: 75vw;
     position: absolute;
-    transform: scale(1.5);
+    transform: scale(1.5) rotate(1deg);
     top: 15vh;
     right: -20%;
     z-index: 1;
