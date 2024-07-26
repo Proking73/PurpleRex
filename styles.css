@@ -30,7 +30,8 @@ body {
 }
 ::-webkit-scrollbar-thumb {
     background: var(--blue);
-    border-radius: calc(var(--border-radius)/8);
+    border-radius: calc(var(--border-radius)/4);
+    border: 0.2vw solid var(--purple);
 }
 ::-webkit-scrollbar-thumb:hover {
     background: hsl(251, 100%, 15%);
