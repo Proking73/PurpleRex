@@ -139,6 +139,7 @@ main.information {
     display: flex;
     justify-content: center;
 }
+/* Swirling yellow with shadow not glow https://www.youtube.com/watch?v=ezP4kbOvs_E */
 footer {
     background-color: hsla(0, 0%, 60%, 0.8);
     position: absolute;
