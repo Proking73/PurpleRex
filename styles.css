@@ -5,45 +5,87 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+:root {
+    --purple: hsl(287, 100%, 25%);
+    --blue: hsl(251, 100%, 25%);
+    --yellow: hsl(47, 100%, 54%);
+    --border-radius: 2vh;
+}
+html {
+    scroll-behavior: smooth;
+}
 body {
     /* Fix scroll (body doesn't start at top) */
     width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(180deg, hsl(287, 100%, 25%) 30%, hsl(251, 100%, 25%));
+    height: fit-content;
     font-family: 'Red Hat Display', sans-serif;
     color: white;
+    overflow-x: hidden;
 }
-
+::-webkit-scrollbar {
+    width: 1vw;
+}
+::-webkit-scrollbar-track {
+    background: hsl(287, 100%, 25%);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: calc(var(--border-radius)/8);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(251, 100%, 15%);
+}
+.front-page {
+    background: linear-gradient(180deg, var(--purple) 30%, var(--blue));
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+}
+/* Hamburger menu phone */
 nav {
     height:fit-content;
-    width: fit-content;
+    width: 100vw;
     position: absolute;
     top: 80vh;
     right: 0;
     /* Fix the font sizing */
     /* Different for mobile */
     font-size: clamp(2.5vh, 2vw, 3vh);
+    display: flex;
+    justify-content: center;
 }
 .menu-links {
     list-style-type: none;
-    width: 100%;
+    width: fit-content;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    background: hsla(0, 0%, 40%, 0.7);
-    border-radius: 2vh;
+    background-color: hsla(0, 0%, 40%, 0.7);
+    border-radius: var(--border-radius);
+    z-index: 2;
 }
 /* a isn't being identified as class or child of ul above */
-li > a {
-    color: white;
+a {
+    color: inherit;
     text-decoration: none;
 }
 li {
     position: relative;
     padding: 2vmin;
+    border-radius: var(--border-radius);
+    margin: 1.5vh;
+    transition: background .25s ease-out, color .25s ease-out, font-weight .25s ease-in;
+    -webkit-transition: background .25s ease-out, color .25s ease-out, font-weight .25s ease-in;
+}
+li:hover {
+    /* Arrows appear on hover? */
+    background-color: hsla(0, 0%, 60%, 0.8);
+    cursor: pointer;
+    color: hsl(287, 80%, 30%);
+    font-weight: 600;
 }
 .nav-arrows {
     /* move it down a bit somehow (transform:translate and position absolute don't work)*/
@@ -53,6 +95,57 @@ header {
     font-weight: 900;
     font-size: clamp(6vh, 5vw, 100px);
     margin: 10vmin;
+}
+.rexImgMain {
+    width: 75vw;
+    position: absolute;
+    transform: scale(1.5);
+    top: 15vh;
+    right: -20%;
+    z-index: 1;
+    animation: rexImgMainIn 3s cubic-bezier(.42,.56,.82,1.05);
+}
+/* !!!Img idle animation either infinite small rotate or up and down */
+@keyframes rexImgMainIn {
+    from {
+        top: 60vh;
+        right: -100%;
+    }
+    to {
+        top: 15vh;
+        right: -20%;
+    }
+}
+@keyframes rexImgMainWiggle {
+    0% {
+        transform: rotate(1deg) scale(1.5);
+    }
+    50% {
+        transform: rotate(-1deg) scale(1.5);
+    }
+    100% {
+        transform: rotate(1deg) scale(1.5);
+    }
+}
+main.information {
+    position: absolute;
+    top: 100vh;
+    /* Make width 80% to content touching not touching walls and make footer with 100% (of 80%) */
+    width: 100%;
+    /* change to fit-content */
+    height: 100vh;
+    background: linear-gradient(180deg, var(--blue), var(--purple));
+    display: flex;
+    justify-content: center;
+}
+footer {
+    background-color: hsla(0, 0%, 60%, 0.8);
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 20vh;
+    border-radius: var(--border-radius);
+    margin-block: 5vh;
 }
 /* Animations of text from left to right (header) and fade in
 rex from bottom right corner
