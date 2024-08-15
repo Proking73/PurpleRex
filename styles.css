@@ -20,7 +20,6 @@ body {
     height: fit-content;
     font-family: 'Red Hat Display', sans-serif;
     color: white;
-    overflow-x: hidden;
 }
 ::-webkit-scrollbar {
     width: 1vw;
@@ -38,10 +37,12 @@ body {
 }
 .front-page {
     background: linear-gradient(180deg, var(--purple) 30%, var(--blue));
-    width: 100%;
+    min-width: 99vw;
     min-height: 100vh;
     position: absolute;
     top: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 /* Hamburger menu phone */
 nav {
@@ -96,7 +97,9 @@ header {
     font-weight: 900;
     font-size: clamp(6vh, 5vw, 100px);
     margin: 10vmin;
+    text-shadow: .25vmin .25vmin .5vmin hsl(287, 100%, 10%);
 }
+/* Rexy causes scroll/overflow on smaller screens fix that (bc image is big) need to clip? */
 .rexImgMain {
     width: 75vw;
     position: absolute;
@@ -107,6 +110,9 @@ header {
     animation: rexImgMainIn 3s cubic-bezier(.42,.56,.82,1.05);
 }
 /* !!!Img idle animation either infinite small rotate or up and down */
+.rexImgFront {
+    display: none;
+}
 @keyframes rexImgMainIn {
     from {
         top: 60vh;
@@ -148,6 +154,15 @@ footer {
     height: 20vh;
     border-radius: var(--border-radius);
     margin-block: 5vh;
+}
+
+@media screen and (max-width: 1200px) {
+    .rexImgMain {
+        display: none;
+    }
+    .rexImgFront {
+        display: block;
+    }
 }
 /* Animations of text from left to right (header) and fade in
 rex from bottom right corner
