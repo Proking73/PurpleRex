@@ -1,2 +1,2 @@
 # A company mockup
-To practice and use the principles of graphic design
+To practice and implement the principles of graphic design
