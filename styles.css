@@ -7,8 +7,8 @@ html {
     box-sizing: border-box;
 }
 :root {
-    --purple: hsl(287, 100%, 27.5%);
-    --blue: hsl(251, 100%, 25%);
+    --purple: hsl(287, 100%, 32.5%);
+    --blue: hsl(251, 100%, 30%);
     --yellow: hsl(47, 100%, 54%);
     --border-radius: 2vh;
 }
@@ -56,7 +56,7 @@ nav {
     width: 100vw;
 
     right: 0;
-    padding-block: 7.5vmin;
+    padding-block: 12.5vmin;
 
     /* Fix the font sizing */
     /* Different for mobile */
